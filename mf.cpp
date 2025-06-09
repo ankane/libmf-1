@@ -980,7 +980,7 @@ mf_float* Utility::malloc_aligned_float(mf_long size)
         (unsigned long)size > numeric_limits<std::size_t>::max() / sizeof(mf_float) + 1)
         throw bad_alloc();
     // [REVIEW] I hope one day we can use C11 aligned_alloc to replace
-    // platform-depedent functions below. Both of Windows and OSX currently
+    // platform-dependent functions below. Both of Windows and OSX currently
     // don't support that function.
     void *ptr = nullptr;
 #ifdef _WIN32
@@ -3279,7 +3279,7 @@ void calc_ccd_one_class_obj(const mf_int nr_threads,
 
     // Declare regularization term of Q
     mf_double q_square_norm = 0.0;
-    // Reduce Q along column axis, whihc is the sum of rows in Q.
+    // Reduce Q along column axis, which is the sum of rows in Q.
     vector<mf_double> all_q_sum(d, 0.0);
     // Compute square of Frobenius norm on Q and sum of all elements in Q
     for(mf_int k = 0; k < d; ++k)

@@ -156,7 +156,7 @@ void predict(string test_path, string model_path, string output_path, mf_int eva
         case COL_AUC:
         {
             auto col_wise_auc = calc_auc(&prob, model, true);
-            cout << fixed << setprecision(4) <<  "Colmn-wise AUC = " << col_wise_auc << endl;
+            cout << fixed << setprecision(4) <<  "Column-wise AUC = " << col_wise_auc << endl;
             break;
         }
         case ROW_MPR:

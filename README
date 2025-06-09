@@ -184,7 +184,7 @@ Command Line Usage
          5: logarithmic loss
          6: accuracy
         10: row-oriented mean percentile rank (row-oriented MPR)
-        11: colum-oriented mean percentile rank (column-oriented MPR)
+        11: column-oriented mean percentile rank (column-oriented MPR)
         12: row-oriented area under ROC curve (row-oriented AUC)
         13: column-oriented area under ROC curve (column-oriented AUC)
 
@@ -362,7 +362,7 @@ There are four public data structures in LIBMF.
         default value should work well.
 
         For disk-level training, `nr_bins' controls the memory usage of
-        because one thread accesss an entire block at one time. If `nr_bins'
+        because one thread accesses an entire block at one time. If `nr_bins'
         is 4 and `nr_threads' is 1, the expected usage of memory is 25% of the
         memory to store the whole training matrix.
 
@@ -400,7 +400,7 @@ There are four public data structures in LIBMF.
 
         Unlike the standard C++ thread class used in stochastic gradient
         method's framework, the parallel computation here relies on OpenMP, so
-        please make sure your complier can support it.
+        please make sure your compiler can support it.
 
 
 -   struct mf_model
@@ -435,7 +435,7 @@ Functions available in LIBMF include:
 
 -   mf_int mf_save_model(struct mf_model const *model, char const *path);
 
-    Save a model. It returns 0 on sucess and 1 on failure.
+    Save a model. It returns 0 on success and 1 on failure.
 
 -   struct mf_model* mf_load_model(char const *path);
 
@@ -595,11 +595,11 @@ Building Windows and Mac and Binaries
 
 -   Mac
 
-    To complie LIBMF on Mac, a GCC complier is required, and users need to
+    To compile LIBMF on Mac, a GCC compiler is required, and users need to
     slightly modify the Makefile. The following instructions are tested with
     GCC 4.9.
 
-    1. Set the complier path to your GCC complier. For example, the first
+    1. Set the compiler path to your GCC compiler. For example, the first
        line in the Makefile can be
 
        CXX = g++-4.9

@@ -3,7 +3,7 @@ train=../mf-train
 predict=../mf-predict
 
 ##########################################################################
-# Build package if no binary found and this script is exectuted via the
+# Build package if no binary found and this script is executed via the
 # following command.
 #  libmf/demo > sh demo.sh
 ##########################################################################
