@@ -5,18 +5,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        - os: ubuntu-latest
-          env: DFLAG="-DUSESSE -DUSEOMP"
-        - os: ubuntu-latest
-          env: DFLAG="-DUSEAVX -DUSEOMP"
-        - os: ubuntu-latest
-          env: DFLAG="-DUSESSE -DUSEOMP"
-        - os: ubuntu-latest
-          env: DFLAG="-DUSEOMP"
-        - os: ubuntu-latest
-          env: DFLAG="-Wl,--no-as-needed"
-        - os: macos-latest
-          env: DFLAG="" OMPFLAG=""
+        include:
+          - os: ubuntu-latest
+            env: DFLAG="-DUSESSE -DUSEOMP"
+          - os: ubuntu-latest
+            env: DFLAG="-DUSEAVX -DUSEOMP"
+          - os: ubuntu-latest
+            env: DFLAG="-DUSESSE -DUSEOMP"
+          - os: ubuntu-latest
+            env: DFLAG="-DUSEOMP"
+          - os: ubuntu-latest
+            env: DFLAG="-Wl,--no-as-needed"
+          - os: macos-latest
+            env: DFLAG="" OMPFLAG=""
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v5
