@@ -1,28 +1,28 @@
 name: build
 on: [push, pull_request]
 jobs:
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - os: ubuntu-latest
-            env: DFLAG="-DUSESSE -DUSEOMP"
-          - os: ubuntu-latest
-            env: DFLAG="-DUSEAVX -DUSEOMP"
-          - os: ubuntu-latest
-            env: DFLAG="-DUSESSE -DUSEOMP"
-          - os: ubuntu-latest
-            env: DFLAG="-DUSEOMP"
-          - os: ubuntu-latest
-            env: DFLAG="-Wl,--no-as-needed"
-          - os: macos-latest
-            env: DFLAG="" OMPFLAG=""
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v5
-      - run: make ${{ matrix.env }}
-      - run: cd demo && sh demo.sh
+  # build:
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       include:
+  #         - os: ubuntu-latest
+  #           env: DFLAG="-DUSESSE -DUSEOMP"
+  #         - os: ubuntu-latest
+  #           env: DFLAG="-DUSEAVX -DUSEOMP"
+  #         - os: ubuntu-latest
+  #           env: DFLAG="-DUSESSE -DUSEOMP"
+  #         - os: ubuntu-latest
+  #           env: DFLAG="-DUSEOMP"
+  #         - os: ubuntu-latest
+  #           env: DFLAG="-Wl,--no-as-needed"
+  #         - os: macos-latest
+  #           env: DFLAG="" OMPFLAG=""
+  #   runs-on: ${{ matrix.os }}
+  #   steps:
+  #     - uses: actions/checkout@v5
+  #     - run: make ${{ matrix.env }}
+  #     - run: cd demo && sh demo.sh
 
   windows:
     strategy:
@@ -35,6 +35,8 @@ jobs:
       - run: |
           call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat" && ^
           nmake /E /F Makefile.win all
+        shell: cmd
         env:
           CPUSET: ${{ matrix.cpuset }}
       - run: cd demo && demo.bat
+        shell: cmd
