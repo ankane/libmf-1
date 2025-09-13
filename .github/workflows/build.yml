@@ -7,3 +7,8 @@ jobs:
       - uses: actions/checkout@v5
       - run: make
       - run: cd demo && sh demo.sh
+
+      - run: sed -i "/s/\$train/valgrind \$train/g" demo/demo.sh
+      - run: sed -i "/s/\$predict/valgrind \$predict/g" demo/demo.sh
+      - run: sudo apt-get update && sudo apt-get install valgrind
+      - run: cd demo && sh demo.sh
