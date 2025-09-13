@@ -1,0 +1,22 @@
+name: build
+on: [push, pull_request]
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: make
+      - run: cd demo && sh demo.sh
+  mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: make DFLAG= OMPFLAG=
+      - run: cd demo && sh demo.sh
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: make
+      - run: cd demo && call demo.bat
+        shell: cmd
