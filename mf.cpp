@@ -3876,7 +3876,7 @@ try
         // The original data is reused as row-major one so
         // one duplicate for column-major one would be created.
         tr_csr = shared_ptr<mf_problem>(Utility::copy_problem(tr_, false));
-        tr_csc = shared_ptr<mf_problem>(Utility::copy_problem(tr_, true));
+        tr_csc = shared_ptr<mf_problem>(Utility::copy_problem(tr_, true), deleter());
         va = shared_ptr<mf_problem>(Utility::copy_problem(va_, false));
     }
 
